@@ -1,0 +1,49 @@
+version: '3'
+services:
+
+  splunkserver:
+    image: splunk/splunk
+    hostname: splunkserver
+    environment:
+      SPLUNK_START_ARGS: --accept-license --answer-yes
+      SPLUNK_ENABLE_LISTEN: 9997
+      SPLUNK_USER: root
+    ports:
+      - "8000:8000"
+      - "9997:9997"
+      - "8088:8088"
+    labels:
+      splunk.env: "splunkserver"
+    networks:
+      splunk:
+        aliases:
+          - splunkserver
+
+  splunkforwarder:
+    image: splunk/universalforwarder
+    hostname: splunkforwarder
+    environment:
+      SPLUNK_START_ARGS: --accept-license --answer-yes
+      SPLUNK_FORWARD_SERVER: splunkserver:9997
+      SPLUNK_USER: root
+    labels:
+      splunk.env: "splunkforwarder"
+    networks:
+      splunk:
+        aliases:
+          - splunkforwarder
+    volumes:
+      - datavolume:/opt/splunk/etc
+    depends_on:
+      - datavolume
+
+  datavolume:
+    image: busybox
+    volumes:
+      - datavolume:/opt/splunk/etc
+
+volumes:
+  datavolume:
+
+networks:
+  splunk:

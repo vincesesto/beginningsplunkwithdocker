@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  splunkserver:
+    image: splunk/splunk
+    hostname: splunkserver
+    environment:
+      SPLUNK_START_ARGS: --accept-license --answer-yes
+      SPLUNK_ENABLE_LISTEN: 9998
+      SPLUNK_USER: root
+    ports:
+      - "8000:8000"
+      - "9997:9997"
+      - "8088:8088"
+
+  nginx:
+    hostname: webserver
+    image: nginx
+    ports:
+      - "80:80"
+    logging:
+      driver: splunk
+      options:
+        splunk-url: https://<insert_server_ip>:8088
+        splunk-token: <insert_your_token>
+        splunk-insecureskipverify: 'true'
+
