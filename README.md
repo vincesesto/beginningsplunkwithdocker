@@ -2,7 +2,7 @@
 ## By Vincent Sesto
 
 The following directories in the git repo are in line with the book of the same name which can be found at the following url:
-https://joomag.com
+https://joom.ag/ssxW
 
 Contained in each of the directories
 ### Chapter 1
