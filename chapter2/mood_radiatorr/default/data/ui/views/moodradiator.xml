@@ -1,0 +1,114 @@
+<dashboard>
+  <label>MoodRadiator</label>
+  <row>
+    <panel>
+      <chart>
+        <title>Your Mood</title>
+        <search>
+          <query>sourcetype=moodLog | extract pairdelim=" ", kvdelim="=:", auto=f
+| stats count as total_responses avg(your_mood) as your_mood avg(team_work) as team_work avg(process) as process avg(leadership) as leadership avg(deadline) as deadline  by _time, timestamp, project
+| fields + *
+| search project="*"
+| chart avg(your_mood)</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">markerGauge</option>
+        <option name="charting.chart.rangeValues">[1,3,5]</option>
+        <option name="charting.chart.style">minimal</option>
+        <option name="charting.gaugeColors">["0xd13b3b","0x84E900"]</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Team Work</title>
+        <search>
+          <query>sourcetype=moodLog | extract pairdelim=" ", kvdelim="=:", auto=f
+| stats count as total_responses avg(your_mood) as your_mood avg(team_work) as team_work avg(process) as process avg(leadership) as leadership avg(deadline) as deadline  by _time, timestamp, project
+| fields + *
+| search project="*"
+| chart avg(team_work)</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">markerGauge</option>
+        <option name="charting.chart.rangeValues">[1,3,5]</option>
+        <option name="charting.chart.style">minimal</option>
+        <option name="charting.gaugeColors">["0xd13b3b","0x84E900"]</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Process</title>
+        <search>
+          <query>sourcetype=moodLog | extract pairdelim=" ", kvdelim="=:", auto=f
+| stats count as total_responses avg(your_mood) as your_mood avg(team_work) as team_work avg(process) as process avg(leadership) as leadership avg(deadline) as deadline  by _time, timestamp, project
+| fields + *
+| search project="*"
+| chart avg(process)</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">markerGauge</option>
+        <option name="charting.chart.rangeValues">[0,3,5]</option>
+        <option name="charting.chart.style">minimal</option>
+        <option name="charting.gaugeColors">["0xd13b3b","0x84E900"]</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Leadership</title>
+        <search>
+          <query>sourcetype=moodLog | extract pairdelim=" ", kvdelim="=:", auto=f
+| stats count as total_responses avg(your_mood) as your_mood avg(team_work) as team_work avg(process) as process avg(leadership) as leadership avg(deadline) as deadline  by _time, timestamp, project
+| fields + *
+| search project="*"
+| chart avg(leadership)</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">markerGauge</option>
+        <option name="charting.chart.rangeValues">[1,3,5]</option>
+        <option name="charting.chart.style">minimal</option>
+        <option name="charting.gaugeColors">["0xd13b3b","0x84E900"]</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Deadline</title>
+        <search>
+          <query>sourcetype=moodLog | extract pairdelim=" ", kvdelim="=:", auto=f
+| stats count as total_responses avg(your_mood) as your_mood avg(team_work) as team_work avg(process) as process avg(leadership) as leadership avg(deadline) as deadline  by _time, timestamp, project
+| fields + *
+| search project="*"
+| chart avg(deadline)</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">markerGauge</option>
+        <option name="charting.chart.rangeValues">[1,3,5]</option>
+        <option name="charting.chart.style">minimal</option>
+        <option name="charting.gaugeColors">["0xd13b3b","0x84E900"]</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Overall Mood Over Time</title>
+        <search>
+          <query>sourcetype=moodLog | extract pairdelim=" ", kvdelim="=:", auto=f
+| stats count as total_responses avg(your_mood) as your_mood avg(team_work) as team_work avg(process) as process avg(leadership) as leadership avg(deadline) as deadline  by _time, timestamp, project
+| fields + *
+| search project="*"
+| chart  avg(your_mood) over timestamp</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">90</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+</dashboard>

@@ -1,0 +1,6 @@
+<nav>
+    <view name="flashtimeline"/>
+    <view name="moodradiator" default='true' />
+    <view name="information" />
+</nav>
+
