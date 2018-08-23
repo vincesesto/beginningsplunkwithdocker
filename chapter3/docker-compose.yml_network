@@ -5,7 +5,7 @@ services:
     image: splunk/splunk
     hostname: splunkserver
     environment:
-      SPLUNK_START_ARGS: --accept-license --answer-yes
+      SPLUNK_START_ARGS: --accept-license --answer-yes --seed-passwd changeme
       SPLUNK_ENABLE_LISTEN: 9997
       SPLUNK_USER: root
     ports:
