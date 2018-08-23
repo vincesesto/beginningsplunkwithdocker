@@ -5,7 +5,7 @@ services:
     image: splunk/splunk
     hostname: splunkserver
     environment:
-      SPLUNK_START_ARGS: --accept-license --answer-yes
+      SPLUNK_START_ARGS: --accept-license --answer-yes --seed-passwd changeme
       SPLUNK_ENABLE_LISTEN: 9997
       SPLUNK_USER: root
     ports:
@@ -23,7 +23,7 @@ services:
     image: splunk/universalforwarder
     hostname: splunkforwarder
     environment:
-      SPLUNK_START_ARGS: --accept-license --answer-yes
+      SPLUNK_START_ARGS: --accept-license --answer-yes --seed-passwd changeme
       SPLUNK_FORWARD_SERVER: splunkserver:9997
       SPLUNK_USER: root
     labels:
