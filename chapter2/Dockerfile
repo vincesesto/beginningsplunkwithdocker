@@ -3,6 +3,7 @@ MAINTAINER vince.sesto@gmail.com
 
 # Set up environment variables
 ENV SPLUNK_START_ARGS --accept-license
+ENV SPLUNK_PASSWORD changeme
 ENV SPLUNK_USER root
 
 # Copy ui_login to stop the first time login screen
