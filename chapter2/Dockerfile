@@ -2,7 +2,7 @@ FROM splunk/splunk:latest
 MAINTAINER vince.sesto@gmail.com
 
 # Set up environment variables
-ENV SPLUNK_START_ARGS --accept-license
+ENV SPLUNK_START_ARGS --accept-license --answer-yes --seed-passwd ChangeM3!
 ENV SPLUNK_USER root
 
 # Copy ui_login to stop the first time login screen
