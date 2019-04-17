@@ -5,7 +5,7 @@ services:
     image: splunk/splunk
     hostname: splunkserver
     environment:
-      SPLUNK_START_ARGS: --accept-license --answer-yes --seed-passwd changeme
+      SPLUNK_START_ARGS: --accept-license --answer-yes --seed-passwd ChangeM3!
       SPLUNK_ENABLE_LISTEN: 9998
       SPLUNK_USER: root
     ports:
