@@ -13,4 +13,4 @@ COPY .ui_login /opt/splunk/etc/.ui_login
 COPY mood_radiator/ /opt/splunk/etc/apps/mood_radiator/
 
 # In case we need it
-RUN apt-get update && apt-get install -y vim
+RUN sudo apt update && sudo apt install -y vim
